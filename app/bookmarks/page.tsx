@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Bookmark, ChevronLeft, Trash2 } from "lucide-react";
-import { type Bookmark } from "@/lib/types";
+import { Bookmark as BookmarkIcon, ChevronLeft, Trash2 } from "lucide-react";
+import { type Bookmark as BookmarkType } from "@/lib/types";
 
 export default function BookmarksPage() {
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [bookmarks, setBookmarks] = useState<BookmarkType[]>([]);
 
   useEffect(() => {
     const stored = localStorage.getItem('quran-bookmarks');
@@ -41,7 +41,7 @@ export default function BookmarksPage() {
 
       {bookmarks.length === 0 ? (
         <Card className="p-8 text-center">
-          <Bookmark className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+          <BookmarkIcon className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
           <h2 className="text-xl font-semibold mb-2">No bookmarks yet</h2>
           <p className="text-muted-foreground mb-4">
             Start adding bookmarks while reading to keep track of your progress
